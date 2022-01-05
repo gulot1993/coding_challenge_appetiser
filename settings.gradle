@@ -1,0 +1,2 @@
+rootProject.name = "itunes_clone"
+include ':app'

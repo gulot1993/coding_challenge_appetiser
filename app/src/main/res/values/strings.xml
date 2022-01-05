@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">itunes_clone</string>
+
+    <string name="string_track_name">Track name: </string>
+    <string name="string_genre">Genre: </string>
+    <string name="string_price">Price: </string>
+    <string name="string_artist">Artist: </string>
+    <string name="string_description">Description: </string>
+
+    <string name="string_currency_value">$%1$s</string>
+    <string name="string_no_track_name">No Track Name</string>
+    <string name="string_no_description">No Description</string>
+</resources>
