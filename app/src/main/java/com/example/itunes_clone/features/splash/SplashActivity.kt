@@ -39,14 +39,19 @@ class SplashActivity: BaseViewModelActivity<SplashViewModel, ActivitySplashBindi
     private fun handleState(state: SplashState) {
         when (state) {
             is SplashState.SavingMusicSuccess -> {
-                navigateToActivity(MainActivity::class.java)
-                finish()
+                finishActivity()
             }
             is SplashState.SavingMusicError -> {
                 state.msg?.let {
                     showError(it)
+                    finishActivity()
                 }
             }
         }
+    }
+
+    private fun finishActivity() {
+        navigateToActivity(MainActivity::class.java)
+        finish()
     }
 }

@@ -13,7 +13,8 @@ data class MusicEntity(
     val imageURL: String = "",
     val price: Double = 0.00,
     val genre: String = "",
-    val description: String = ""
+    val description: String = "",
+    val previewUrl: String = ""
 ) {
     companion object {
         const val TABLE_NAME = "music"
@@ -25,7 +26,8 @@ data class MusicEntity(
                     price = price.toString(),
                     genre = genre,
                     description = description,
-                    artist = artist
+                    artist = artist,
+                    videoPreviewUrl = previewUrl
                 )
         }
 

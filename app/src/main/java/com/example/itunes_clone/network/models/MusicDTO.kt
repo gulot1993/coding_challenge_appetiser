@@ -17,7 +17,9 @@ data class MusicDTO(
     @SerializedName("primaryGenreName")
     val genre: String,
     @SerializedName("longDescription")
-    val description: String?
+    val description: String?,
+    @SerializedName("previewUrl")
+    val videoPreviewURL: String?
 ): Parcelable {
     companion object {
         fun MusicDTO.toDomain(): Music {
@@ -29,6 +31,7 @@ data class MusicDTO(
                     price = price.toString(),
                     genre = genre,
                     description = description ?: "",
+                    videoPreviewUrl = videoPreviewURL ?: ""
                 )
             }
         }

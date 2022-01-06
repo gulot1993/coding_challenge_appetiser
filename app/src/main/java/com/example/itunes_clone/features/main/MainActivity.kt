@@ -11,6 +11,10 @@ import com.example.itunes_clone.databinding.ActivityMainBinding
 import com.example.itunes_clone.databinding.FragmentMusicDetailBinding
 import com.example.itunes_clone.domain.Music
 import com.example.itunes_clone.ext.loadImage
+import com.google.android.exoplayer2.ExoPlayer
+import com.google.android.exoplayer2.MediaItem
+import com.google.android.exoplayer2.PlaybackException
+import com.google.android.exoplayer2.Player
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import io.reactivex.rxkotlin.addTo
 import io.reactivex.rxkotlin.subscribeBy
@@ -22,12 +26,18 @@ class MainActivity : BaseViewModelActivity<MainViewModel, ActivityMainBinding>()
     private val gridLayoutManager: GridLayoutManager by lazy {
         return@lazy GridLayoutManager(this, 1, GridLayoutManager.VERTICAL, false)
     }
+    private var exoPlayer: ExoPlayer? = null
     override fun getLayoutId(): Int = R.layout.activity_main
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setupExoPlayer()
         viewModel.getMusicFromDb()
         setupVMObservers()
+    }
+
+    private fun setupExoPlayer() {
+        exoPlayer = ExoPlayer.Builder(this).build()
     }
 
     private fun setupRecyclerView() {
@@ -89,9 +99,30 @@ class MainActivity : BaseViewModelActivity<MainViewModel, ActivityMainBinding>()
                 )
         binding.music = music
         bottomSheetDialog.setContentView(binding.root)
-        binding
-            .ivMusic
-            .loadImage(music.imageURL)
         bottomSheetDialog.show()
+
+        if (bottomSheetDialog.isShowing) {
+            if (!music.videoPreviewUrl.isNullOrEmpty()) {
+                val mediaItem = MediaItem.fromUri(music.videoPreviewUrl)
+                binding
+                    .playerView
+                    .apply {
+                        player = exoPlayer
+                        exoPlayer!!.setMediaItem(mediaItem)
+                        exoPlayer!!.prepare()
+                        exoPlayer!!.play()
+                    }
+            }
+        }
+
+        bottomSheetDialog.setOnDismissListener {
+            exoPlayer!!.stop()
+        }
+    }
+
+    override fun onDestroy() {
+        exoPlayer!!.release()
+        exoPlayer = null
+        super.onDestroy()
     }
 }

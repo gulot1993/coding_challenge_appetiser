@@ -11,7 +11,8 @@ data class Music(
     val imageURL: String = "",
     val price: String = "",
     val genre: String,
-    val description: String = ""
+    val description: String = "",
+    val videoPreviewUrl: String = ""
 ): Parcelable {
     companion object {
         fun Music.toEntity(): MusicEntity {
@@ -22,7 +23,8 @@ data class Music(
                     imageURL = imageURL,
                     price = price.toDouble(),
                     genre = genre,
-                    description = description
+                    description = description,
+                    previewUrl = videoPreviewUrl
                 )
             }
         }
