@@ -1,4 +1,4 @@
-package com.example.itunes_clone.network.source
+package com.example.itunes_clone.network
 
 import com.example.itunes_clone.domain.Music
 import com.example.itunes_clone.local.models.MusicEntity

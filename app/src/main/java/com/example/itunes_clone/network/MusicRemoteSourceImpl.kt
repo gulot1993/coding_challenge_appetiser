@@ -1,10 +1,7 @@
-package com.example.itunes_clone.network.source
+package com.example.itunes_clone.network
 
-import com.example.itunes_clone.domain.Music
 import com.example.itunes_clone.local.models.MusicEntity
 import com.example.itunes_clone.network.base.BaseApiService
-import com.example.itunes_clone.network.models.MusicDTO
-import com.example.itunes_clone.network.models.MusicDTO.Companion.toListDomain
 import com.example.itunes_clone.network.models.MusicDTO.Companion.toListEntity
 import io.reactivex.Single
 import javax.inject.Inject

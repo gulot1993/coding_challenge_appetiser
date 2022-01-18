@@ -1,8 +1,8 @@
 package com.example.itunes_clone.local.di
 
 import com.example.itunes_clone.local.db.AppDatabase
-import com.example.itunes_clone.local.source.MusicLocalSource
-import com.example.itunes_clone.local.source.MusicLocalSourceImpl
+import com.example.itunes_clone.local.MusicLocalSource
+import com.example.itunes_clone.local.MusicLocalSourceImpl
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton

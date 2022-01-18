@@ -1,8 +1,8 @@
 package com.example.itunes_clone.network.di
 
 import com.example.itunes_clone.network.base.BaseApiService
-import com.example.itunes_clone.network.source.MusicRemoteSource
-import com.example.itunes_clone.network.source.MusicRemoteSourceImpl
+import com.example.itunes_clone.network.MusicRemoteSource
+import com.example.itunes_clone.network.MusicRemoteSourceImpl
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton

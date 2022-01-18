@@ -1,16 +1,10 @@
-package com.example.itunes_clone.local.source
+package com.example.itunes_clone.local
 
 import com.example.itunes_clone.domain.Music
-import com.example.itunes_clone.domain.Music.Companion.toEntity
-import com.example.itunes_clone.domain.Music.Companion.toListEntity
 import com.example.itunes_clone.local.dao.MusicDao
 import com.example.itunes_clone.local.models.MusicEntity
-import com.example.itunes_clone.local.models.MusicEntity.Companion.toDomain
 import com.example.itunes_clone.local.models.MusicEntity.Companion.toListDomain
-import com.example.itunes_clone.network.models.MusicDTO
-import io.reactivex.Completable
 import io.reactivex.Single
-import timber.log.Timber
 import javax.inject.Inject
 
 class MusicLocalSourceImpl @Inject constructor(

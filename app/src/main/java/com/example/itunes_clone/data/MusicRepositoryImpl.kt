@@ -1,17 +1,15 @@
-package com.example.itunes_clone.data.source
+package com.example.itunes_clone.data
 
 import com.example.itunes_clone.domain.Music
 import com.example.itunes_clone.local.models.MusicEntity
-import com.example.itunes_clone.local.source.MusicLocalSource
-import com.example.itunes_clone.network.models.MusicDTO
-import com.example.itunes_clone.network.source.MusicRemoteSource
+import com.example.itunes_clone.local.MusicLocalSource
+import com.example.itunes_clone.network.MusicRemoteSource
 import io.reactivex.Single
-import timber.log.Timber
 import javax.inject.Inject
 
 class MusicRepositoryImpl @Inject constructor(
-    private val musicLocalSource: MusicLocalSource,
-    private val musicRemoteSource: MusicRemoteSource
+        private val musicLocalSource: MusicLocalSource,
+        private val musicRemoteSource: MusicRemoteSource
 ): MusicRepository {
     override fun getMusicsFromAPi(): Single<List<MusicEntity>> {
         return musicRemoteSource
