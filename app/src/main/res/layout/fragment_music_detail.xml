@@ -39,7 +39,7 @@
             android:orientation="vertical"/>
 
         <TextView
-            android:id="@+id/tvTrackName"
+            android:id="@+id/txtTrackName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
@@ -50,39 +50,39 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/tvTrackNameValue"
+            android:id="@+id/txtTrackNameValue"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:text="@{music.trackName.empty ? @string/string_no_track_name : music.trackName}"
             android:textColor="@color/colorPrimaryTextColor"
-            app:layout_constraintStart_toEndOf="@id/tvTrackName"
-            app:layout_constraintTop_toTopOf="@id/tvTrackName"
+            app:layout_constraintStart_toEndOf="@id/txtTrackName"
+            app:layout_constraintTop_toTopOf="@id/txtTrackName"
             app:layout_constraintEnd_toStartOf="@id/rightGuideline"
             tools:text="Title here" />
 
 
         <TextView
-            android:id="@+id/tvGenre"
+            android:id="@+id/txtGenre"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/string_genre"
             android:textColor="@color/colorPrimaryTextColor"
             android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@id/tvTrackNameValue"
-            app:layout_constraintStart_toStartOf="@id/tvTrackName"/>
+            app:layout_constraintTop_toBottomOf="@id/txtTrackNameValue"
+            app:layout_constraintStart_toStartOf="@id/txtTrackName"/>
 
         <TextView
-            android:id="@+id/tvGenreValue"
+            android:id="@+id/txtGenreValue"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:singleLine="true"
             android:text="@{music.genre}"
             android:textColor="@color/colorPrimaryTextColor"
-            app:layout_constraintStart_toStartOf="@id/tvTrackNameValue"
-            app:layout_constraintTop_toBottomOf="@id/tvTrackNameValue"
-            app:layout_constraintEnd_toEndOf="@id/tvTrackNameValue"
+            app:layout_constraintStart_toStartOf="@id/txtTrackNameValue"
+            app:layout_constraintTop_toBottomOf="@id/txtTrackNameValue"
+            app:layout_constraintEnd_toEndOf="@id/txtTrackNameValue"
             tools:text="Genre here" />
 
         <TextView
@@ -92,8 +92,8 @@
             android:text="@string/string_artist"
             android:textColor="@color/colorPrimaryTextColor"
             android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@id/tvGenre"
-            app:layout_constraintStart_toStartOf="@id/tvGenre"/>
+            app:layout_constraintTop_toBottomOf="@id/txtGenre"
+            app:layout_constraintStart_toStartOf="@id/txtGenre"/>
 
         <TextView
             android:id="@+id/tvArtistValue"
@@ -103,9 +103,9 @@
             android:singleLine="true"
             android:text="@{music.artist}"
             android:textColor="@color/colorPrimaryTextColor"
-            app:layout_constraintStart_toStartOf="@id/tvGenreValue"
-            app:layout_constraintTop_toBottomOf="@id/tvGenreValue"
-            app:layout_constraintEnd_toEndOf="@id/tvGenreValue"
+            app:layout_constraintStart_toStartOf="@id/txtGenreValue"
+            app:layout_constraintTop_toBottomOf="@id/txtGenreValue"
+            app:layout_constraintEnd_toEndOf="@id/txtGenreValue"
             tools:text="Artist here" />
 
         <TextView

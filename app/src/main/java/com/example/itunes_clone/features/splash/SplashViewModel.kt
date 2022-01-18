@@ -3,11 +3,12 @@ package com.example.itunes_clone.features.splash
 import com.example.itunes_clone.common.base.BaseViewModel
 import com.example.itunes_clone.data.source.MusicRepository
 import com.example.itunes_clone.domain.Music
+import com.example.itunes_clone.local.models.MusicEntity
+import com.example.itunes_clone.network.models.MusicDTO
 import io.reactivex.Observable
 import io.reactivex.rxkotlin.addTo
 import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.subjects.PublishSubject
-import timber.log.Timber
 import javax.inject.Inject
 
 class SplashViewModel @Inject constructor(
@@ -19,7 +20,7 @@ class SplashViewModel @Inject constructor(
 
     fun getAndSaveMusics() {
         musicRepository
-            .getMusicsFromApiAndSaveToDb()
+            .getMusicsFromAPi()
             .subscribeOn(scheduler.io())
             .observeOn(scheduler.main())
             .subscribeBy(
@@ -33,7 +34,7 @@ class SplashViewModel @Inject constructor(
             .addTo(disposables)
     }
 
-    private fun saveMusicToDb(musics: List<Music>) {
+    private fun saveMusicToDb(musics: List<MusicEntity>) {
         musicRepository
             .saveMusicsToDb(musics)
             .subscribeOn(scheduler.io())

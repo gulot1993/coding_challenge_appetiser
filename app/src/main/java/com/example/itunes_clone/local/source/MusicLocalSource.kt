@@ -1,6 +1,8 @@
 package com.example.itunes_clone.local.source
 
 import com.example.itunes_clone.domain.Music
+import com.example.itunes_clone.local.models.MusicEntity
+import com.example.itunes_clone.network.models.MusicDTO
 import io.reactivex.Single
 
 interface MusicLocalSource {
@@ -11,5 +13,5 @@ interface MusicLocalSource {
     /**
      * save musics into db
      * */
-    fun saveMusics(musics: List<Music>): Single<List<Long>>
+    fun saveMusics(musics: List<MusicEntity>): Single<List<Long>>
 }

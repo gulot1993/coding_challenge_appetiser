@@ -2,6 +2,8 @@ package com.example.itunes_clone.network.models
 
 import android.os.Parcelable
 import com.example.itunes_clone.domain.Music
+import com.example.itunes_clone.local.models.MusicEntity
+import com.example.itunes_clone.local.models.MusicEntity.Companion.toDomain
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 import timber.log.Timber
@@ -39,5 +41,19 @@ data class MusicDTO(
         fun List<MusicDTO>.toListDomain(): List<Music> {
             return this.map { it.toDomain() }
         }
+
+        fun MusicDTO.toEntity(): MusicEntity {
+            return MusicEntity(
+                    trackName = trackName ?: "",
+                    imageURL = imageURL,
+                    price = price,
+                    genre = genre,
+                    description = description ?: "",
+                    artist = artistName ,
+                    previewUrl = videoPreviewURL ?: ""
+            )
+        }
+
+        fun List<MusicDTO>.toListEntity(): List<MusicEntity> = this.map { it.toEntity() }
     }
 }
